@@ -1,4 +1,4 @@
-1. Install necessary tools (ESLint, Stylelint, SCSS, Axios)
+1. Install necessary tools (ESLint, Stylelint, SCSS, Axios, React Router)
 2. Add initial files (fonts, images)
 3. Create a global store to hold all the global variables.
 4. The jokes loaded from the API have to be remapped for better utilizing. Jokes that don't have a category will be categorized as "uncategorized", and add like and dislike properties
