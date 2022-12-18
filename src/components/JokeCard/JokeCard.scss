@@ -1,0 +1,41 @@
+@import 'assets/styles';
+
+.joke-card {
+    @include border-shadow;
+
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: white;
+
+    .title-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .icon {
+            margin-top: 0.3rem;
+            margin-right: 1rem;
+        }
+
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        font-size: 1.8rem;
+        background-color: transparent;
+        border: none;
+
+        .text {
+            margin-right: 0.6rem;
+            color: $gold;
+            text-transform: uppercase;
+        }
+    }
+}
