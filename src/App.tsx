@@ -1,10 +1,12 @@
 import React from 'react';
-import GlobalProvider from './contexts/global/GlobalContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+// Contexts
+import GlobalProvider from 'contexts/global/GlobalContext';
+
 // Pages
-import Index from './pages/Index';
-import NotFound from './pages/NotFound';
+import Index from 'pages/Index';
+import NotFound from 'pages/NotFound';
 
 export default function App() {
     return (

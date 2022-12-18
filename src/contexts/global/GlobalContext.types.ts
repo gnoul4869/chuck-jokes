@@ -1,4 +1,4 @@
-import { Joke } from '../../types/shared.types';
+import { Joke } from 'types/shared.types';
 
 export type State = {
     isLoading: boolean;

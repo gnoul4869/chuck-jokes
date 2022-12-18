@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useContext, useEffect } from 'react';
-import { GlobalContext } from '../contexts/global/GlobalContext';
-import { ChuckJokeResultItem, Joke } from '../types/shared.types';
+import { GlobalContext } from 'contexts/global/GlobalContext';
+
+import { ChuckJokeResultItem, Joke } from 'types/shared.types';
 
 // api.chucknorris.io
 const API_ENDPOINT = 'https://api.chucknorris.io/jokes/search?query=all';
