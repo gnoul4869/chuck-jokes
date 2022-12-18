@@ -1,4 +1,3 @@
-import React from 'react';
 import { Joke } from 'types/shared.types';
 import Icon from 'components/Icon/Icon';
 
