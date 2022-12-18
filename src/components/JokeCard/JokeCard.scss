@@ -7,6 +7,7 @@
     color: $black;
     background-color: $white-two;
     border: solid 0.1rem $white-three;
+    border-radius: 0.2rem;
 
     &:hover {
         box-shadow: 0 0.1rem 0.7rem 0 rgb(0 0 0 / 15%);
