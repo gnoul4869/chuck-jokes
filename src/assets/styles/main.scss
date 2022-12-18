@@ -17,6 +17,10 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.main-body {
+    margin: min(5vw, 5rem) 0;
+}
+
 .container {
     width: 100%;
     margin: auto;
