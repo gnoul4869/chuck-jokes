@@ -21,28 +21,28 @@ code {
     width: 100%;
     margin: auto;
 
-    // small
-    @media (min-width: 32em) {
+    // Small
+    @media (min-width: $screen-xs) {
         width: 54rem;
     }
 
-    // medium
-    @media (min-width: 40em) {
+    // Medium
+    @media (min-width: $screen-md) {
         width: 72rem;
     }
 
     // large
-    @media (min-width: 64em) {
+    @media (min-width: $screen-lg) {
         width: 96rem;
     }
 
     // Extra Large
-    @media (min-width: 80em) {
+    @media (min-width: $screen-xl) {
         width: 114rem;
     }
 
     // Extra Extra Large
-    @media (min-width: 96em) {
+    @media (min-width: $screen-xxl) {
         width: 132rem;
     }
 }

@@ -1,1 +1,11 @@
+// Screen sizes ---------------------------------------------------------------
+// em is the only unit that performed consistently for media queries
+$screen-xs: 32em;
+$screen-sm: 40em;
+$screen-md: 48em;
+$screen-lg: 64em;
+$screen-xl: 80em;
+$screen-xxl: 96em;
+
+// Colors ---------------------------------------------------------------------
 $gold: #cca65f;
