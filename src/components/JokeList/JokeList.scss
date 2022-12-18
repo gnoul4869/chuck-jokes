@@ -9,7 +9,7 @@
         display: grid;
         grid-template-columns: minmax(0, 1fr);
         grid-auto-rows: 1fr;
-        row-gap: 1vh;
+        row-gap: 2vw;
         column-gap: 1vw;
 
         @media (min-width: $screen-md) {
@@ -18,6 +18,22 @@
 
         @media (min-width: $screen-lg) {
             grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    .btn-view-more {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 2rem 5rem;
+        margin: 0 auto;
+        margin-top: 4vw;
+        cursor: pointer;
+        border: 0.1rem solid $gold;
+
+        .text {
+            color: $gold;
+            text-transform: uppercase;
         }
     }
 

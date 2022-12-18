@@ -1,17 +1,24 @@
 .icon {
     position: absolute;
     transition: all 0.1s ease;
-    transition-property: right, bottom;
+    transition-property: right, transform;
 
     &.right {
         right: 1rem;
     }
+
+    &.down {
+        right: 2rem;
+        transform: translateY(0);
+    }
 }
 
-button:hover {
-    .icon {
-        &.right {
-            right: 0;
-        }
+button:hover .icon {
+    &.right {
+        right: 0.5rem;
+    }
+
+    &.down {
+        transform: translateY(30%);
     }
 }
