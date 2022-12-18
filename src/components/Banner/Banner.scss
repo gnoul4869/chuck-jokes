@@ -1,0 +1,31 @@
+@import 'assets/styles';
+
+.banner-container {
+    position: relative;
+
+    .content-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+
+        .title-container {
+            text-align: center;
+
+            .title {
+                margin-bottom: 1.4rem;
+                font-size: 4.8rem;
+                color: $gold;
+            }
+
+            .sub-title {
+                color: $white-two;
+            }
+        }
+    }
+
+    .banner-img {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
