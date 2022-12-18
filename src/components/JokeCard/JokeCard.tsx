@@ -21,7 +21,7 @@ export default function JokeCard({ joke }: JokeCardProps) {
             <div className="content">{value}</div>
             <button>
                 <span className="text">See stats</span>
-                <Icon name="left_arrow" size="lg" />
+                <Icon name="arrow_left" size="lg" />
             </button>
         </div>
     );
