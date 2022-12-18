@@ -1,0 +1,17 @@
+.icon {
+    position: absolute;
+    transition: all 0.1s ease;
+    transition-property: right, bottom;
+
+    &.right {
+        right: 1rem;
+    }
+}
+
+button:hover {
+    .icon {
+        &.right {
+            right: 0;
+        }
+    }
+}

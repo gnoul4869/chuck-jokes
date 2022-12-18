@@ -6,7 +6,9 @@ import { IconProps } from './Icon.types';
 //* Utils
 import { calculateSize } from 'utils/sizing';
 
-export default function Icon({ name, size }: IconProps) {
+import './Icon.scss';
+
+export default function Icon({ name, size, className }: IconProps) {
     const [icon, setIcon] = useState<string | undefined>(undefined);
 
     useEffect(() => {
@@ -29,5 +31,5 @@ export default function Icon({ name, size }: IconProps) {
 
     const icon_name = `${name}_icon`;
 
-    return <img src={icon} alt={icon_name} style={style} />;
+    return <img src={icon} alt={icon_name} style={style} className={className} />;
 }
