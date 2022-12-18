@@ -10,26 +10,24 @@ export default function JokeList() {
     const { jokes, isLoading, error } = useFetchData();
 
     if (isLoading) {
-        return <h1>Loading...</h1>;
-    }
-
-    if (error) {
-        return <h1>{error}</h1>;
+        return (
+            <div className="info-container">
+                <div className="content">{isLoading ? 'Loading...' : error}</div>
+            </div>
+        );
     }
 
     return (
-        <div className="container">
-            <div className="jokelist-container">
-                <div className="list-container">
-                    {jokes.slice(0, total).map((joke) => {
-                        return <JokeCard key={joke.id} joke={joke} />;
-                    })}
-                </div>
-                <button className="btn-view-more" onClick={() => setTotal(total + 3)}>
-                    <span className="text">View more</span>
-                    <Icon name="arrow_down" size="sm" className="icon down" />
-                </button>
+        <div className="jokelist-container">
+            <div className="list-container">
+                {jokes.slice(0, total).map((joke) => {
+                    return <JokeCard key={joke.id} joke={joke} />;
+                })}
             </div>
+            <button className="btn-view-more" onClick={() => setTotal(total + 3)}>
+                <span className="text">View more</span>
+                <Icon name="arrow_down" size="sm" className="icon down" />
+            </button>
         </div>
     );
 }

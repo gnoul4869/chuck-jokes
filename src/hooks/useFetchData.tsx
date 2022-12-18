@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useContext, useEffect } from 'react';
-import { GlobalContext } from 'contexts/global/GlobalContext';
+import { GlobalContext } from 'contexts/GlobalContext/GlobalContext';
 
 import { ChuckJokeResultItem, Joke } from 'types/shared.types';
 

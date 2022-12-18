@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Contexts
-import GlobalProvider from 'contexts/global/GlobalContext';
+import GlobalProvider from 'contexts/GlobalContext/GlobalContext';
 
 // Components
 import Banner from 'components/Banner/Banner';
@@ -16,12 +16,14 @@ export default function App() {
         <GlobalProvider>
             <Banner />
             <div className="main-body">
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/" element={<Index />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </BrowserRouter>
+                <div className="container">
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<Index />} />
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </BrowserRouter>
+                </div>
             </div>
             <Footer />
         </GlobalProvider>
