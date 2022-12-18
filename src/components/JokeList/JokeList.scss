@@ -15,7 +15,7 @@
 
     .list-container {
         display: grid;
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
         grid-auto-rows: 1fr;
         row-gap: 2vw;
         column-gap: 1vw;
@@ -37,6 +37,7 @@
         margin: 0 auto;
         margin-top: 4vw;
         cursor: pointer;
+        background-color: transparent;
         border: 0.1rem solid $gold;
 
         .text {
