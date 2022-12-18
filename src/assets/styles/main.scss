@@ -16,3 +16,33 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.container {
+    width: 100%;
+    margin: auto;
+
+    // small
+    @media (min-width: 32em) {
+        width: 54rem;
+    }
+
+    // medium
+    @media (min-width: 40em) {
+        width: 72rem;
+    }
+
+    // large
+    @media (min-width: 64em) {
+        width: 96rem;
+    }
+
+    // Extra Large
+    @media (min-width: 80em) {
+        width: 114rem;
+    }
+
+    // Extra Extra Large
+    @media (min-width: 96em) {
+        width: 132rem;
+    }
+}
