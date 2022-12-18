@@ -18,16 +18,18 @@ export default function JokeList() {
     }
 
     return (
-        <div className="jokelist-container">
-            <div className="list-container">
-                {jokes.slice(0, total).map((joke) => {
-                    return <JokeCard key={joke.id} joke={joke} />;
-                })}
+        <div className="container">
+            <div className="jokelist-container">
+                <div className="list-container">
+                    {jokes.slice(0, total).map((joke) => {
+                        return <JokeCard key={joke.id} joke={joke} />;
+                    })}
+                </div>
+                <button className="btn-view-more" onClick={() => setTotal(total + 3)}>
+                    <span className="text">View more</span>
+                    <Icon name="arrow_down" size="sm" className="icon down" />
+                </button>
             </div>
-            <button className="btn-view-more" onClick={() => setTotal(total + 3)}>
-                <span className="text">View more</span>
-                <Icon name="arrow_down" size="sm" className="icon down" />
-            </button>
         </div>
     );
 }

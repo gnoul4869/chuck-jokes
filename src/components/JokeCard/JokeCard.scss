@@ -1,13 +1,16 @@
 @import 'assets/styles';
 
 .joke-card {
-    @include border-shadow;
-
     display: flex;
     flex-direction: column;
     padding: 1.6rem;
     color: $black;
-    background-color: white;
+    background-color: $white-two;
+    border: solid 0.1rem $white-three;
+
+    &:hover {
+        box-shadow: 0 0.1rem 0.7rem 0 rgb(0 0 0 / 15%);
+    }
 
     .title-container {
         display: flex;
