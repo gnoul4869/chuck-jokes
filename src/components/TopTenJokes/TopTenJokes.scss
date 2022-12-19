@@ -1,0 +1,30 @@
+@import 'assets/styles';
+
+.top-jokes-container {
+    @include card;
+
+    height: 100%;
+    padding: 0;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        padding: 3rem;
+        color: $black;
+
+        .title {
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        a {
+            text-decoration: underline;
+
+            &:hover {
+                color: $pastel-orange;
+            }
+        }
+    }
+}

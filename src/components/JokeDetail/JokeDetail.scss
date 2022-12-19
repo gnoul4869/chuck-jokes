@@ -1,12 +1,16 @@
 @import 'assets/styles';
 
 .detail-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: 1fr;
+    column-gap: 2rem;
     margin: 0 1rem;
 
     .detail-card {
         @include card;
 
-        min-height: 28rem;
+        min-height: 22rem;
 
         .header {
             display: flex;

@@ -7,18 +7,20 @@ import { categories } from 'data/categories';
 
 import { Joke } from 'types/shared.types';
 import './JokeDetail.scss';
+import useJokes from 'hooks/useJokes';
+import TopTenJokes from 'components/TopTenJokes/TopTenJokes';
 
 type JokeDetailProps = {
     joke: Joke;
 };
 
 export default function JokeDetail({ joke }: JokeDetailProps) {
-    const { state, dispatch } = useContext(GlobalContext);
-    const { jokes } = state;
+    const { dispatch } = useContext(GlobalContext);
+    const { getJokeTitle, getJokeRanking } = useJokes();
 
     const category = categories.find((c) => c.name === joke.category);
-    const title = `The #${jokes.filter((j) => j.category === joke.category).findIndex((j) => j.id === joke.id) + 1} ${joke.category} joke`;
-    const rank = [...jokes].sort((a, b) => b.likes - b.dislikes - (a.likes - a.dislikes)).findIndex((j) => j.id === joke.id) + 1;
+    const title = getJokeTitle(joke);
+    const rank = getJokeRanking(joke.id);
     const isTrending = rank <= 10;
 
     const handleReaction = (react: 'LIKE' | 'DISLIKE') => {
@@ -35,33 +37,36 @@ export default function JokeDetail({ joke }: JokeDetailProps) {
 
     return (
         <div className="detail-container">
-            <div className="detail-card">
-                <div className="header">
-                    {category && <CategoryTag category={category} isActive={true} />}
-                    {isTrending && (
-                        <div className="trending-tag">
-                            <div className="dot"></div>
-                            <span className="text">Trending</span>
-                        </div>
-                    )}
+            <div>
+                <div className="detail-card">
+                    <div className="header">
+                        {category && <CategoryTag category={category} isActive={true} />}
+                        {isTrending && (
+                            <div className="trending-tag">
+                                <div className="dot"></div>
+                                <span className="text">Trending</span>
+                            </div>
+                        )}
+                    </div>
+                    <div className="title-container">
+                        <div className="title">{title}</div>
+                        <div className="line"></div>
+                        <div className="ranking">No #{rank}</div>
+                    </div>
+                    <div className="content">{joke.value}</div>
                 </div>
-                <div className="title-container">
-                    <div className="title">{title}</div>
-                    <div className="line"></div>
-                    <div className="ranking">No #{rank}</div>
+                <div className="reaction-container">
+                    <button className="btn-react like" onClick={() => handleReaction('LIKE')}>
+                        <Icon name="thumbs_up" size="xl" className="react-icon like" />
+                        <div className="count">{joke.likes}</div>
+                    </button>
+                    <button className="btn-react dislike" onClick={() => handleReaction('DISLIKE')}>
+                        <Icon name="thumbs_down" size="xl" className="react-icon dislike" />
+                        <div className="count">{joke.dislikes}</div>
+                    </button>
                 </div>
-                <div className="content">{joke.value}</div>
             </div>
-            <div className="reaction-container">
-                <button className="btn-react like" onClick={() => handleReaction('LIKE')}>
-                    <Icon name="thumbs_up" size="xl" className="react-icon like" />
-                    <div className="count">{joke.likes}</div>
-                </button>
-                <button className="btn-react dislike" onClick={() => handleReaction('DISLIKE')}>
-                    <Icon name="thumbs_down" size="xl" className="react-icon dislike" />
-                    <div className="count">{joke.dislikes}</div>
-                </button>
-            </div>
+            <TopTenJokes />
         </div>
     );
 }
