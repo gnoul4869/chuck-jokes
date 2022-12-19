@@ -1,6 +1,6 @@
 import './CategoryTag.scss';
 
-import { Category } from 'components/Categories/Categories';
+import { Category } from 'data/categories';
 
 type CategoryTagProps = {
     category: Category;

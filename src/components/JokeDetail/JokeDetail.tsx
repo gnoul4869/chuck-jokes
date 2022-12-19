@@ -3,7 +3,7 @@ import { GlobalContext } from 'contexts/GlobalContext/GlobalContext';
 
 import Icon from 'components/Icon/Icon';
 import CategoryTag from 'components/CategoryTag/CategoryTag';
-import { categories } from 'components/Categories/Categories';
+import { categories } from 'data/categories';
 
 import { Joke } from 'types/shared.types';
 import './JokeDetail.scss';
@@ -16,7 +16,7 @@ export default function JokeDetail({ joke }: JokeDetailProps) {
     const { state, dispatch } = useContext(GlobalContext);
     const { jokes } = state;
 
-    const category = categories.find((c) => (c.name = joke.category));
+    const category = categories.find((c) => c.name === joke.category);
     const title = `The #${jokes.filter((j) => j.category === joke.category).findIndex((j) => j.id === joke.id) + 1} ${joke.category} joke`;
     const rank = [...jokes].sort((a, b) => b.likes - b.dislikes - (a.likes - a.dislikes)).findIndex((j) => j.id === joke.id) + 1;
     const isTrending = rank <= 10;
