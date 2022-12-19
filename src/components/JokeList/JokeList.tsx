@@ -43,7 +43,7 @@ export default function JokeList() {
 
     return (
         <>
-            <Categories setCategory={setCategory} />
+            <Categories category={category} setCategory={setCategory} />
             <div className="jokelist-container">
                 <div className="list-container">
                     {computedJokes()

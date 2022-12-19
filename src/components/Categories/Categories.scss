@@ -1,34 +1,59 @@
 @import 'assets/styles';
 
-.categories-container {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1vw;
-    margin-bottom: min(2vw, 4rem);
+.categories-wrapper {
+    display: flex;
+    flex-direction: column;
 
-    .btn-category {
-        padding: min(1.5vw, 1.8rem) 0;
+    .categories-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1vw;
+        margin-bottom: min(2vw, 4rem);
+
+        .btn-category {
+            padding: min(1.8vw, 1.8rem) 0;
+            color: $white-two;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: 0.1rem solid $white-two;
+
+            &.all {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $gold;
+                border: 0.1rem solid $gold;
+            }
+
+            &:not(.all):hover {
+                border: 0.1rem solid $black;
+            }
+        }
+
+        @media (min-width: $screen-md) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        @media (min-width: $screen-lg) {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+    }
+
+    .btn-show-categories {
+        padding: 1.4rem 4rem;
+        margin: 0 auto;
+        margin-bottom: min(2vw, 4rem);
+        font-size: 1.4rem;
         color: $white-two;
         text-transform: uppercase;
         cursor: pointer;
-        border: 0.1rem solid $white-two;
+        background-color: $gold;
+        border: none;
+        border-radius: 3rem;
 
-        &.all {
-            position: relative;
-            color: $gold;
-            border: 0.1rem solid $gold;
+        &:hover {
+            box-shadow: rgb(0 0 0 / 16%) 0 0.1rem 0.4rem;
         }
-
-        &:not(.all):hover {
-            border: 0.1rem solid $black;
-        }
-    }
-
-    @media (min-width: $screen-md) {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    @media (min-width: $screen-lg) {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 }

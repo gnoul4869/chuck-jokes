@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import Icon from 'components/Icon/Icon';
+import useWindowDimensions from 'hooks/useWindowDimensions';
 import './Categories.scss';
 
 export type Category = {
@@ -26,29 +28,48 @@ const categories: Category[] = [
 ];
 
 type CategoriesProps = {
+    category: string;
     setCategory: (value: string) => void;
 };
 
-export default function Categories({ setCategory }: CategoriesProps) {
+export default function Categories({ category, setCategory }: CategoriesProps) {
+    const [showCategories, setShowCategories] = useState(false);
+    const { width } = useWindowDimensions();
+
+    useEffect(() => {
+        setShowCategories(false);
+    }, [category]);
+
+    const isMobileScreen = width < 768;
+
     return (
-        <div className="categories-container">
-            {categories.map((category) => (
-                <button
-                    key={category.name}
-                    style={{ backgroundColor: category.color }}
-                    className={`btn-category ${category.name === 'all' ? 'all' : ''}`}
-                    onClick={() => setCategory(category.name)}
-                >
-                    {category.name === 'all' ? (
-                        <>
-                            <span className="text">View all</span>
-                            <Icon name="arrow_down" size="sm" className="icon down" />
-                        </>
-                    ) : (
-                        `${category.name} Joke`
-                    )}
+        <div className="categories-wrapper">
+            {(showCategories || !isMobileScreen) && (
+                <div className="categories-container">
+                    {categories.map((category) => (
+                        <button
+                            key={category.name}
+                            style={{ backgroundColor: category.color }}
+                            className={`btn-category ${category.name === 'all' ? 'all' : ''}`}
+                            onClick={() => setCategory(category.name)}
+                        >
+                            {category.name === 'all' ? (
+                                <>
+                                    <span className="text">View all</span>
+                                    <Icon name="arrow_down" size="sm" className="icon down" />
+                                </>
+                            ) : (
+                                `${category.name} Joke`
+                            )}
+                        </button>
+                    ))}
+                </div>
+            )}
+            {isMobileScreen && (
+                <button className="btn-show-categories" onClick={() => setShowCategories(!showCategories)}>
+                    {`${showCategories ? 'Hide' : 'Show'} categories`}
                 </button>
-            ))}
+            )}
         </div>
     );
 }
