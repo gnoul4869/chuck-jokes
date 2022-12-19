@@ -7,6 +7,7 @@
         .header {
             display: flex;
             align-items: center;
+            margin-bottom: min(1.5vw, 1.5rem);
             text-transform: uppercase;
 
             .trending-tag {
@@ -30,27 +31,37 @@
 
         .title-container {
             display: flex;
+            align-items: flex-end;
+            margin-bottom: min(2vw, 2rem);
             font-weight: 600;
             color: $gold;
 
             .title {
                 width: max-content;
-                font-size: 4rem;
-                line-height: 1.5;
+                font-size: 2rem;
+                line-height: 0.8;
                 text-transform: capitalize;
+
+                @media (min-width: $screen-md) {
+                    font-size: 4rem;
+                }
             }
 
             .line {
                 flex-grow: 1;
-                margin: 0 1rem;
+                margin: 0 1.2rem;
                 border-bottom: 0.2rem solid $gold;
-                transform: translate3d(0, -25%, 0);
             }
 
             .ranking {
-                align-self: center;
+                padding: 0;
+                margin: 0;
+                line-height: 0.8;
                 text-transform: uppercase;
-                transform: translate3d(0, 50%, 0);
+
+                @media (min-width: $screen-md) {
+                    font-size: 1.6rem;
+                }
             }
         }
     }
