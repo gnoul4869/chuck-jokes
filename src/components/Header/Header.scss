@@ -1,6 +1,6 @@
 @import 'assets/styles';
 
-.banner-container {
+.header-container {
     position: relative;
 
     .content-container {
@@ -44,5 +44,7 @@
     .banner-img {
         min-width: 100%;
         max-width: 100%;
+        max-height: 25rem;
+        object-fit: cover;
     }
 }

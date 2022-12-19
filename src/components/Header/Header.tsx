@@ -1,10 +1,10 @@
 import bannerBackground from 'assets/images/banner_background.png';
 
-import './Banner.scss';
+import './Header.scss';
 
 export default function Banner() {
     return (
-        <div className="banner-container">
+        <div className="header-container">
             <div className="content-container">
                 <div className="title-container">
                     <div className="title">Chuck Jokes</div>

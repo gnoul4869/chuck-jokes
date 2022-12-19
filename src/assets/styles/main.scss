@@ -17,9 +17,22 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.main-body {
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
     min-height: 80rem;
     margin: min(3vw, 3rem) 0;
+
+    &::after {
+        display: block;
+        height: 200px;
+        content: '';
+    }
 }
 
 .container {
