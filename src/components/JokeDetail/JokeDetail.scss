@@ -7,123 +7,153 @@
     column-gap: 2rem;
     margin: 0 1rem;
 
-    .detail-card {
-        @include card;
+    .detail-inner-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-        min-height: 22rem;
+        .detail-card {
+            @include card;
 
-        .header {
-            display: flex;
-            align-items: center;
-            margin-bottom: min(1.5vw, 1.5rem);
-            text-transform: uppercase;
+            min-height: 22rem;
 
-            .trending-tag {
+            .header {
                 display: flex;
                 align-items: center;
-                margin-left: auto;
-
-                .text {
-                    margin-left: 0.5rem;
-                    font-weight: 600;
-                    color: $pale-orange;
-                }
-
-                .dot {
-                    @include dot;
-
-                    background-color: $pale-orange;
-                }
-            }
-        }
-
-        .title-container {
-            display: flex;
-            align-items: flex-end;
-            margin-bottom: min(2vw, 2rem);
-            font-weight: 600;
-            color: $gold;
-
-            .title {
-                width: max-content;
-                font-size: 2rem;
-                line-height: 0.8;
-                text-transform: capitalize;
-
-                @media (min-width: $screen-md) {
-                    font-size: 3rem;
-                }
-
-                @media (min-width: $screen-lg) {
-                    font-size: 4rem;
-                }
-            }
-
-            .line {
-                flex-grow: 1;
-                margin: 0 1.2rem;
-                border-bottom: 0.2rem solid $gold;
-            }
-
-            .ranking {
-                min-width: 10%;
-                padding: 0;
-                margin: 0;
-                font-size: 1.4rem;
-                line-height: 0.8;
+                margin-bottom: min(1.5vw, 1.5rem);
                 text-transform: uppercase;
 
-                @media (min-width: $screen-md) {
-                    font-size: 1.6rem;
+                .trending-tag {
+                    display: flex;
+                    align-items: center;
+                    margin-left: auto;
+
+                    .text {
+                        margin-left: 0.5rem;
+                        font-weight: 600;
+                        color: $pale-orange;
+                    }
+
+                    .dot {
+                        @include dot;
+
+                        background-color: $pale-orange;
+                    }
+                }
+            }
+
+            .title-container {
+                display: flex;
+                align-items: flex-end;
+                margin-bottom: min(2vw, 2rem);
+                font-weight: 600;
+                color: $gold;
+
+                .title {
+                    width: max-content;
+                    font-size: 2rem;
+                    line-height: 0.8;
+                    text-transform: capitalize;
+
+                    @media (min-width: $screen-md) {
+                        font-size: 3rem;
+                    }
+
+                    @media (min-width: $screen-lg) {
+                        font-size: 4rem;
+                    }
+                }
+
+                .line {
+                    flex-grow: 1;
+                    margin: 0 1.2rem;
+                    border-bottom: 0.2rem solid $gold;
+                }
+
+                .ranking {
+                    min-width: 10%;
+                    padding: 0;
+                    margin: 0;
+                    font-size: 1.4rem;
+                    line-height: 0.8;
+                    text-transform: uppercase;
+
+                    @media (min-width: $screen-md) {
+                        font-size: 1.6rem;
+                    }
                 }
             }
         }
-    }
 
-    .reaction-container {
-        display: flex;
-        gap: 3rem;
-        margin: 1.5rem;
-
-        .btn-react {
-            position: relative;
+        .reaction-container {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            text-align: center;
-            cursor: pointer;
-            border: 0.1rem solid transparent;
-            border-radius: 50%;
+            gap: 3rem;
+            margin: 1.5rem;
 
-            &.like {
-                color: $weird-green;
-                background-color: $weird-green;
-            }
+            .btn-react {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+                text-align: center;
+                cursor: pointer;
+                border: 0.1rem solid transparent;
+                border-radius: 50%;
 
-            &.dislike {
-                color: $weird-red;
-                background-color: $weird-red;
-            }
-
-            .react-icon {
-                transition: transform 0.1s ease;
-            }
-
-            &:hover {
-                & .react-icon.like {
-                    transform: translate3d(0, -15%, 0);
+                &.like {
+                    color: $weird-green;
+                    background-color: $weird-green;
                 }
 
-                & .react-icon.dislike {
-                    transform: translate3d(0, 15%, 0);
+                &.dislike {
+                    color: $weird-red;
+                    background-color: $weird-red;
+                }
+
+                .react-icon {
+                    transition: transform 0.1s ease;
+                }
+
+                &:hover {
+                    & .react-icon.like {
+                        transform: translate3d(0, -15%, 0);
+                    }
+
+                    & .react-icon.dislike {
+                        transform: translate3d(0, 15%, 0);
+                    }
+                }
+
+                .count {
+                    position: absolute;
+                    bottom: 0;
+                    transform: translate3d(0, 150%, 0);
                 }
             }
+        }
 
-            .count {
-                position: absolute;
-                bottom: 0;
-                transform: translate3d(0, 150%, 0);
+        .control-container {
+            display: flex;
+            column-gap: 2rem;
+            justify-content: flex-end;
+            margin-top: 1rem;
+
+            .btn-control {
+                position: relative;
+                display: flex;
+                align-items: center;
+                padding: 1.5rem 4rem;
+                cursor: pointer;
+                background-color: $white-two;
+                border: 0.1rem solid $light-grey;
+
+                .text {
+                    align-items: center;
+                    font-weight: 600;
+                    color: $gold;
+                    text-transform: uppercase;
+                }
             }
         }
     }

@@ -18,5 +18,26 @@ export default function useJokes() {
         return getRankedJokes().slice(0, 10);
     };
 
-    return { getJokeTitle, getRankedJokes, getJokeRanking, getTopTenJokes };
+    const getPrevJoke = (jokeId: string) => {
+        const index = jokes.findIndex((j) => j.id === jokeId);
+        if (index === -1) {
+            return jokes[0];
+        }
+        if (index === 0) {
+            return jokes.at(-1) as Joke;
+        }
+
+        return jokes[index - 1];
+    };
+
+    const getNextJoke = (jokeId: string) => {
+        const index = jokes.findIndex((j) => j.id === jokeId);
+        if (index === -1 || index === jokes.length - 1) {
+            return jokes[0];
+        }
+
+        return jokes[index + 1];
+    };
+
+    return { getJokeTitle, getRankedJokes, getJokeRanking, getTopTenJokes, getPrevJoke, getNextJoke };
 }

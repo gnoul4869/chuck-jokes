@@ -9,6 +9,7 @@ import { Joke } from 'types/shared.types';
 import './JokeDetail.scss';
 import useJokes from 'hooks/useJokes';
 import TopTenJokes from 'components/TopTenJokes/TopTenJokes';
+import { Link } from 'react-router-dom';
 
 type JokeDetailProps = {
     joke: Joke;
@@ -16,7 +17,7 @@ type JokeDetailProps = {
 
 export default function JokeDetail({ joke }: JokeDetailProps) {
     const { dispatch } = useContext(GlobalContext);
-    const { getJokeTitle, getJokeRanking } = useJokes();
+    const { getJokeTitle, getJokeRanking, getPrevJoke, getNextJoke } = useJokes();
 
     const category = categories.find((c) => c.name === joke.category);
     const title = getJokeTitle(joke);
@@ -37,7 +38,7 @@ export default function JokeDetail({ joke }: JokeDetailProps) {
 
     return (
         <div className="detail-container">
-            <div>
+            <div className="detail-inner-container">
                 <div className="detail-card">
                     <div className="header">
                         {category && <CategoryTag category={category} isActive={true} />}
@@ -64,6 +65,16 @@ export default function JokeDetail({ joke }: JokeDetailProps) {
                         <Icon name="thumbs_down" size="xl" className="react-icon dislike" />
                         <div className="count">{joke.dislikes}</div>
                     </button>
+                </div>
+                <div className="control-container">
+                    <Link to={`/jokes/${getPrevJoke(joke.id).id}`} className="btn-control">
+                        <Icon name="arrow2_left" size="sm" className="icon left" />
+                        <span className="text">Prev. Joke</span>
+                    </Link>
+                    <Link to={`/jokes/${getNextJoke(joke.id).id}`} className="btn-control">
+                        <span className="text">Next Joke</span>
+                        <Icon name="arrow2_right" size="sm" className="icon right" />
+                    </Link>
                 </div>
             </div>
             <TopTenJokes />
