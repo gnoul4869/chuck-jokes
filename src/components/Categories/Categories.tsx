@@ -51,7 +51,7 @@ export default function Categories({ categoryName, setCategoryName }: Categories
                 <div className="categories-container">
                     {categories.map((category) => (
                         <button
-                            key={category.name}
+                            key={category.id}
                             style={{ backgroundColor: category.color }}
                             className={`btn-category ${category.name === 'all' ? 'all' : ''}`}
                             onClick={() => setCategoryName(category.name)}
