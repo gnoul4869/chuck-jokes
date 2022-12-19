@@ -4,6 +4,8 @@
     .detail-card {
         @include card;
 
+        min-height: 28rem;
+
         .header {
             display: flex;
             align-items: center;
