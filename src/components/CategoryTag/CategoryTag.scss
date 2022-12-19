@@ -1,0 +1,36 @@
+@import 'assets/styles';
+
+.category-tag {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    padding: 0.5rem 1rem;
+    margin-bottom: min(2vw, 2rem);
+    margin-left: 1rem;
+    color: $white-two;
+    border: 0.1rem solid transparent;
+    border-radius: 2rem;
+
+    &.all {
+        color: $gold;
+        border: 0.1rem solid $gold;
+    }
+
+    .active-dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: $white-two;
+        border-radius: 50%;
+    }
+
+    .text {
+        margin-left: 0.8rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    @media (min-width: $screen-md) {
+        margin-left: 0;
+    }
+}

@@ -13,7 +13,7 @@ import { GlobalContext } from 'contexts/GlobalContext/GlobalContext';
 
 export default function JokeList() {
     const DEFAULT_TOTAL = 6;
-    const [category, setCategory] = useState('all');
+    const [categoryName, setCategoryName] = useState('all');
     const [total, setTotal] = useState(DEFAULT_TOTAL);
 
     const { jokes } = useContext(GlobalContext).state;
@@ -21,11 +21,11 @@ export default function JokeList() {
     // Reset total when changing category
     useEffect(() => {
         setTotal(DEFAULT_TOTAL);
-    }, [category]);
+    }, [categoryName]);
 
     const computedJokes = (): Array<Joke> => {
-        if (category !== 'all') {
-            return jokes.filter((j) => j.category === category);
+        if (categoryName !== 'all') {
+            return jokes.filter((j) => j.category === categoryName);
         }
 
         return jokes;
@@ -35,7 +35,7 @@ export default function JokeList() {
 
     return (
         <>
-            <Categories category={category} setCategory={setCategory} />
+            <Categories categoryName={categoryName} setCategoryName={setCategoryName} />
             <div className="jokelist-container">
                 <div className="list-container">
                     {computedJokes()

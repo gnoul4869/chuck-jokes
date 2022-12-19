@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Icon from 'components/Icon/Icon';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import './Categories.scss';
+import CategoryTag from 'components/CategoryTag/CategoryTag';
 
 export type Category = {
     id: number;
@@ -28,17 +29,19 @@ const categories: Category[] = [
 ];
 
 type CategoriesProps = {
-    category: string;
-    setCategory: (value: string) => void;
+    categoryName: string;
+    setCategoryName: (value: string) => void;
 };
 
-export default function Categories({ category, setCategory }: CategoriesProps) {
+export default function Categories({ categoryName, setCategoryName }: CategoriesProps) {
     const [showCategories, setShowCategories] = useState(false);
     const { width } = useWindowDimensions();
 
     useEffect(() => {
         setShowCategories(false);
-    }, [category]);
+    }, [categoryName]);
+
+    const selectedCategory = categories.find((category) => category.name === categoryName);
 
     const isMobileScreen = width < 768;
 
@@ -51,7 +54,7 @@ export default function Categories({ category, setCategory }: CategoriesProps) {
                             key={category.name}
                             style={{ backgroundColor: category.color }}
                             className={`btn-category ${category.name === 'all' ? 'all' : ''}`}
-                            onClick={() => setCategory(category.name)}
+                            onClick={() => setCategoryName(category.name)}
                         >
                             {category.name === 'all' ? (
                                 <>
@@ -70,6 +73,7 @@ export default function Categories({ category, setCategory }: CategoriesProps) {
                     {`${showCategories ? 'Hide' : 'Show'} categories`}
                 </button>
             )}
+            {selectedCategory && <CategoryTag category={selectedCategory} />}
         </div>
     );
 }
