@@ -13,7 +13,7 @@
     }
 }
 
-button:hover .icon {
+[class^='btn-']:hover .icon {
     &.right {
         right: 0.5rem;
     }

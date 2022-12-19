@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { Joke } from 'types/shared.types';
 import Icon from 'components/Icon/Icon';
 
@@ -8,7 +10,7 @@ type JokeCardProps = {
 };
 
 export default function JokeCard({ joke }: JokeCardProps) {
-    const { category, value } = joke;
+    const { id, category, value } = joke;
     return (
         <div className="joke-card">
             <div className="title-container">
@@ -16,10 +18,10 @@ export default function JokeCard({ joke }: JokeCardProps) {
                 <div className="title">{category.toUpperCase()} JOKE</div>
             </div>
             <div className="content">{value}</div>
-            <button className="btn-stats">
+            <Link to={`/jokes/${id}`} className="btn-stats">
                 <span className="text">See stats</span>
                 <Icon name="arrow_left" size="md" className="icon right" />
-            </button>
+            </Link>
         </div>
     );
 }
