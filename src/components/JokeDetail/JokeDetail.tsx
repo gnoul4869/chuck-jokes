@@ -18,7 +18,7 @@ export default function JokeDetail({ joke }: JokeDetailProps) {
 
     const category = categories.find((c) => (c.name = joke.category));
     const title = `The #${jokes.filter((j) => j.category === joke.category).findIndex((j) => j.id === joke.id) + 1} ${joke.category} joke`;
-    const rank = jokes.sort((a, b) => b.likes - a.likes).findIndex((j) => j.id === joke.id) + 1;
+    const rank = [...jokes].sort((a, b) => b.likes - b.dislikes - (a.likes - a.dislikes)).findIndex((j) => j.id === joke.id) + 1;
     const isTrending = rank <= 10;
 
     const handleReaction = (react: 'LIKE' | 'DISLIKE') => {
