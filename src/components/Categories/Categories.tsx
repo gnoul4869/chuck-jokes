@@ -45,7 +45,7 @@ export default function Categories({ setCategory }: CategoriesProps) {
                             <Icon name="arrow_down" size="sm" className="icon down" />
                         </>
                     ) : (
-                        category.name
+                        `${category.name} Joke`
                     )}
                 </button>
             ))}

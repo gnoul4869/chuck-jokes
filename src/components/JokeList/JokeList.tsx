@@ -60,7 +60,6 @@ export default function JokeList() {
                     <span className="text">View more</span>
                     <Icon name="arrow_down" size="sm" className="icon down" />
                 </button>
-                {isViewMoreAvailable && 'hahaha'}
             </div>
         </>
     );
