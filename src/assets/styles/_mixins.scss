@@ -5,3 +5,10 @@
     border: solid 0.1rem $light-grey;
     border-radius: 0.2rem;
 }
+
+@mixin dot() {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: $white-two;
+    border-radius: 50%;
+}

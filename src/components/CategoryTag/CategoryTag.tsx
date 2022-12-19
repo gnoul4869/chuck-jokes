@@ -13,7 +13,7 @@ export default function CategoryTag({ category, isActive, style }: CategoryTagPr
 
     return (
         <div className={`category-tag ${isAll ? 'all' : ''}`} style={{ backgroundColor: category.color, ...style }}>
-            {isActive && <div className="active-dot"></div>}
+            {isActive && <div className="dot"></div>}
             <div className="text">
                 {category.name} Joke{isAll ? 's' : ''}
             </div>

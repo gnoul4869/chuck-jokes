@@ -15,11 +15,8 @@
         border: 0.1rem solid $gold;
     }
 
-    .active-dot {
-        width: 0.5rem;
-        height: 0.5rem;
-        background-color: $white-two;
-        border-radius: 50%;
+    .dot {
+        @include dot;
     }
 
     .text {

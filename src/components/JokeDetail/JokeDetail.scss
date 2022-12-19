@@ -1,0 +1,57 @@
+@import 'assets/styles';
+
+.detail-container {
+    .detail-card {
+        @include card;
+
+        .header {
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+
+            .trending-tag {
+                display: flex;
+                align-items: center;
+                margin-left: auto;
+
+                .text {
+                    margin-left: 0.5rem;
+                    font-weight: 600;
+                    color: $pale-orange;
+                }
+
+                .dot {
+                    @include dot;
+
+                    background-color: $pale-orange;
+                }
+            }
+        }
+
+        .title-container {
+            display: flex;
+            font-weight: 600;
+            color: $gold;
+
+            .title {
+                width: max-content;
+                font-size: 4rem;
+                line-height: 1.5;
+                text-transform: capitalize;
+            }
+
+            .line {
+                flex-grow: 1;
+                margin: 0 1rem;
+                border-bottom: 0.2rem solid $gold;
+                transform: translate3d(0, -25%, 0);
+            }
+
+            .ranking {
+                align-self: center;
+                text-transform: uppercase;
+                transform: translate3d(0, 50%, 0);
+            }
+        }
+    }
+}
