@@ -10,7 +10,7 @@ export type Category = {
     color: string;
 };
 
-const categories: Category[] = [
+export const categories: Category[] = [
     { id: 0, name: 'career', color: 'Orange' },
     { id: 1, name: 'celebrity', color: 'Violet' },
     { id: 2, name: 'dev', color: 'Blue' },
@@ -73,7 +73,7 @@ export default function Categories({ categoryName, setCategoryName }: Categories
                     {`${showCategories ? 'Hide' : 'Show'} categories`}
                 </button>
             )}
-            {selectedCategory && <CategoryTag category={selectedCategory} />}
+            {selectedCategory && <CategoryTag category={selectedCategory} style={{ marginBottom: 'min(2vw, 2rem)' }} />}
         </div>
     );
 }

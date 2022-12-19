@@ -1,0 +1,7 @@
+@mixin card() {
+    padding: 1.6rem;
+    color: $black;
+    background-color: $white-two;
+    border: solid 0.1rem $light-grey;
+    border-radius: 0.2rem;
+}
