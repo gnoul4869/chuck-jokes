@@ -1,6 +1,10 @@
 .footer-container {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+
     .footer-img {
-        min-width: 100%;
-        max-width: 100%;
+        min-width: 100vw;
+        max-width: 100vw;
     }
 }
