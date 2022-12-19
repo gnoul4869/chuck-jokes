@@ -3,15 +3,24 @@
 .top-jokes-container {
     @include card;
 
-    height: 100%;
+    height: fit-content;
     padding: 0;
+
+    @media (min-width: $screen-md) {
+        height: 100%;
+    }
 
     .content {
         display: flex;
         flex-direction: column;
         row-gap: 1rem;
+        align-items: center;
         padding: 3rem;
         color: $black;
+
+        @media (min-width: $screen-md) {
+            align-items: flex-start;
+        }
 
         .title {
             margin-bottom: 1.5rem;

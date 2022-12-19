@@ -32,12 +32,6 @@ a {
     flex: 1;
     min-height: 80rem;
     margin: min(3vw, 3rem) 0;
-
-    &::after {
-        display: block;
-        height: 200px;
-        content: '';
-    }
 }
 
 .container {
