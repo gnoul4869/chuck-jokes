@@ -23,7 +23,17 @@ export default function JokeList() {
         setTotal(DEFAULT_TOTAL);
     }, [category]);
 
-    if (isLoading) {
+    const computedJokes = (): Array<Joke> => {
+        if (category !== 'all') {
+            return jokes.filter((j) => j.category === category);
+        }
+
+        return jokes;
+    };
+
+    const isViewMoreAvailable = computedJokes().length !== computedJokes().slice(0, total + 3).length;
+
+    if (isLoading || error) {
         return (
             <div className="info-container">
                 <div className="content">{isLoading ? 'Fetching jokes...' : error}</div>
@@ -31,29 +41,26 @@ export default function JokeList() {
         );
     }
 
-    const computedJokes = (): Array<Joke> => {
-        let cJokes = jokes;
-
-        if (category !== 'all') {
-            cJokes = jokes.filter((j) => j.category === category);
-        }
-
-        return cJokes.slice(0, total);
-    };
-
     return (
         <>
             <Categories setCategory={setCategory} />
             <div className="jokelist-container">
                 <div className="list-container">
-                    {computedJokes().map((joke) => {
-                        return <JokeCard key={joke.id} joke={joke} />;
-                    })}
+                    {computedJokes()
+                        .slice(0, total)
+                        .map((joke) => {
+                            return <JokeCard key={joke.id} joke={joke} />;
+                        })}
                 </div>
-                <button className="btn-view-more" onClick={() => setTotal(total + 3)}>
+                <button
+                    className={`btn-view-more ${!isViewMoreAvailable ? 'disabled' : ''}`}
+                    disabled={!isViewMoreAvailable}
+                    onClick={() => setTotal(total + 3)}
+                >
                     <span className="text">View more</span>
                     <Icon name="arrow_down" size="sm" className="icon down" />
                 </button>
+                {isViewMoreAvailable && 'hahaha'}
             </div>
         </>
     );

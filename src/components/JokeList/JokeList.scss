@@ -44,6 +44,10 @@
             color: $gold;
             text-transform: uppercase;
         }
+
+        &.disabled {
+            cursor: not-allowed;
+        }
     }
 
     @media (min-width: $screen-md) {
