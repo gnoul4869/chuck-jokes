@@ -1,6 +1,8 @@
 @import 'assets/styles';
 
 .detail-container {
+    margin: 0 1rem;
+
     .detail-card {
         @include card;
 
@@ -67,5 +69,57 @@
                 }
             }
         }
+    }
+
+    .reaction-container {
+        display: flex;
+        gap: 3rem;
+        margin: 1.5rem;
+
+        .btn-react {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            border: 0.1rem solid transparent;
+            border-radius: 50%;
+
+            &.like {
+                color: $weird-green;
+                background-color: $weird-green;
+            }
+
+            &.dislike {
+                color: $weird-red;
+                background-color: $weird-red;
+            }
+
+            .react-icon {
+                transition: transform 0.1s ease;
+            }
+
+            &:hover {
+                & .react-icon.like {
+                    transform: translate3d(0, -15%, 0);
+                }
+
+                & .react-icon.dislike {
+                    transform: translate3d(0, 15%, 0);
+                }
+            }
+
+            .count {
+                position: absolute;
+                bottom: 0;
+                transform: translate3d(0, 150%, 0);
+            }
+        }
+    }
+
+    @media (min-width: $screen-md) {
+        margin: 0;
     }
 }

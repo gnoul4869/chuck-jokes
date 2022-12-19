@@ -13,6 +13,15 @@ const reducer = (state: State, action: Action): State => {
         case 'SET_ERROR': {
             return { ...state, error: action.payload };
         }
+        case 'UPDATE_JOKE': {
+            const jokeIndex = state.jokes.findIndex((j) => j.id == action.payload.id);
+            if (jokeIndex === -1) {
+                return state;
+            }
+
+            state.jokes[jokeIndex] = action.payload;
+            return { ...state };
+        }
         default:
             return state;
     }

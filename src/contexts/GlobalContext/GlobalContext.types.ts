@@ -22,4 +22,9 @@ export type SetError = {
     payload: string;
 };
 
-export type Action = SetJokes | SetIsLoading | SetError;
+export type UpdateJoke = {
+    type: 'UPDATE_JOKE';
+    payload: Joke;
+};
+
+export type Action = SetJokes | SetIsLoading | SetError | UpdateJoke;

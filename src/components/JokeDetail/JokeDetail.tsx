@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { GlobalContext } from 'contexts/GlobalContext/GlobalContext';
 
+import Icon from 'components/Icon/Icon';
 import CategoryTag from 'components/CategoryTag/CategoryTag';
 import { categories } from 'components/Categories/Categories';
 
@@ -12,11 +13,25 @@ type JokeDetailProps = {
 };
 
 export default function JokeDetail({ joke }: JokeDetailProps) {
-    const { jokes } = useContext(GlobalContext).state;
+    const { state, dispatch } = useContext(GlobalContext);
+    const { jokes } = state;
+
     const category = categories.find((c) => (c.name = joke.category));
     const title = `The #${jokes.filter((j) => j.category === joke.category).findIndex((j) => j.id === joke.id) + 1} ${joke.category} joke`;
-    const rank = jokes.sort((a, b) => a.likes - b.likes).findIndex((j) => j.id === joke.id) + 1;
+    const rank = jokes.sort((a, b) => b.likes - a.likes).findIndex((j) => j.id === joke.id) + 1;
     const isTrending = rank <= 10;
+
+    const handleReaction = (react: 'LIKE' | 'DISLIKE') => {
+        const newJoke = { ...joke };
+
+        if (react === 'LIKE') {
+            newJoke.likes++;
+        } else {
+            newJoke.dislikes++;
+        }
+
+        dispatch({ type: 'UPDATE_JOKE', payload: newJoke });
+    };
 
     return (
         <div className="detail-container">
@@ -36,6 +51,16 @@ export default function JokeDetail({ joke }: JokeDetailProps) {
                     <div className="ranking">No #{rank}</div>
                 </div>
                 <div className="content">{joke.value}</div>
+            </div>
+            <div className="reaction-container">
+                <button className="btn-react like" onClick={() => handleReaction('LIKE')}>
+                    <Icon name="thumbs_up" size="xl" className="react-icon like" />
+                    <div className="count">{joke.likes}</div>
+                </button>
+                <button className="btn-react dislike" onClick={() => handleReaction('DISLIKE')}>
+                    <Icon name="thumbs_down" size="xl" className="react-icon dislike" />
+                    <div className="count">{joke.dislikes}</div>
+                </button>
             </div>
         </div>
     );
