@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
 
-//* Types
-import { IconProps } from './Icon.types';
-
 //* Utils
 import { calculateSize } from 'utils/sizing';
 
 import './Icon.scss';
+
+export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
+export type IconProps = {
+    name: string;
+    size: Size;
+    className?: string;
+};
 
 export default function Icon({ name, size, className }: IconProps) {
     const [icon, setIcon] = useState<string | undefined>(undefined);
