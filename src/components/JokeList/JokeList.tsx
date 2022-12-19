@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import useFetchData from 'hooks/useFetchData';
+import { useContext, useState, useEffect } from 'react';
 
 // Components
 import Icon from 'components/Icon/Icon';
@@ -10,13 +9,14 @@ import JokeCard from 'components/JokeCard/JokeCard';
 import { Joke } from 'types/shared.types';
 
 import './JokeList.scss';
+import { GlobalContext } from 'contexts/GlobalContext/GlobalContext';
 
 export default function JokeList() {
     const DEFAULT_TOTAL = 6;
-
     const [category, setCategory] = useState('all');
     const [total, setTotal] = useState(DEFAULT_TOTAL);
-    const { jokes, isLoading, error } = useFetchData();
+
+    const { jokes } = useContext(GlobalContext).state;
 
     // Reset total when changing category
     useEffect(() => {
@@ -32,14 +32,6 @@ export default function JokeList() {
     };
 
     const isViewMoreAvailable = computedJokes().length !== computedJokes().slice(0, total + 3).length;
-
-    if (isLoading || error) {
-        return (
-            <div className="info-container">
-                <div className="content">{isLoading ? 'Fetching jokes...' : error}</div>
-            </div>
-        );
-    }
 
     return (
         <>
