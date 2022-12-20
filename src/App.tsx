@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 // Components
 import Header from 'components/Header/Header';
@@ -15,7 +15,7 @@ export default function App() {
     const { isLoading, error } = useFetchData();
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div className="app">
                 <Header />
                 <div className="main">
@@ -25,16 +25,18 @@ export default function App() {
                                 <div className="content">{isLoading ? 'Fetching jokes...' : error}</div>
                             </div>
                         ) : (
-                            <Routes>
-                                <Route path="/" element={<Index />} />
-                                <Route path="/jokes/:id" element={<Detail />} />
-                                <Route path="*" element={<NotFound />} />
-                            </Routes>
+                            <switch>
+                                <Routes>
+                                    <Route path="/" element={<Index />} />
+                                    <Route path="/jokes/:id" element={<Detail />} />
+                                    <Route path="*" element={<NotFound />} />
+                                </Routes>
+                            </switch>
                         )}
                     </div>
                 </div>
                 <Footer />
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
