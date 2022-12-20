@@ -1,6 +1,6 @@
 # Chuck Jokes
 
-A simple react application for viewing Chuck Norris's collection of jokes
+A simple react application for viewing a collection of Chuck Norris jokes
 
 - Languages: TypeScript, SCSS
 - Library: React
