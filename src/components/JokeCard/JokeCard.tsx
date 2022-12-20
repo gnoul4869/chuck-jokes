@@ -14,7 +14,7 @@ export default function JokeCard({ joke }: JokeCardProps) {
     return (
         <div className="joke-card">
             <div className="title-container">
-                <Icon name="lightning" size="xs" className="icon" />
+                <Icon name="lightning_yellow" size="xs" className="icon" />
                 <div className="title">{category.toUpperCase()} JOKE</div>
             </div>
             <div className="content">{value}</div>

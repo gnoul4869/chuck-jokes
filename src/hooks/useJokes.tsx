@@ -39,5 +39,21 @@ export default function useJokes() {
         return jokes[index + 1];
     };
 
-    return { getJokeTitle, getRankedJokes, getJokeRanking, getTopTenJokes, getPrevJoke, getNextJoke };
+    const searchJokes = (query: string) => {
+        const results = [];
+        const q = query.toLowerCase();
+        for (const j of jokes) {
+            if (j.value.toLowerCase().includes(q)) {
+                results.push(j);
+            }
+
+            if (results.length === 4) {
+                break;
+            }
+        }
+
+        return results;
+    };
+
+    return { getJokeTitle, getRankedJokes, getJokeRanking, getTopTenJokes, getPrevJoke, getNextJoke, searchJokes };
 }
