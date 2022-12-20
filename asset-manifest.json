@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/chuck-jokes/static/css/main.6dd3ccfe.css",
+    "main.js": "/chuck-jokes/static/js/main.bb8f807b.js",
+    "static/js/597.0294433d.chunk.js": "/chuck-jokes/static/js/597.0294433d.chunk.js",
+    "static/js/328.a005e5d3.chunk.js": "/chuck-jokes/static/js/328.a005e5d3.chunk.js",
+    "static/js/625.5854339e.chunk.js": "/chuck-jokes/static/js/625.5854339e.chunk.js",
+    "static/js/540.60c21b18.chunk.js": "/chuck-jokes/static/js/540.60c21b18.chunk.js",
+    "static/js/62.fb012436.chunk.js": "/chuck-jokes/static/js/62.fb012436.chunk.js",
+    "static/js/920.8522b796.chunk.js": "/chuck-jokes/static/js/920.8522b796.chunk.js",
+    "static/js/986.f16075f6.chunk.js": "/chuck-jokes/static/js/986.f16075f6.chunk.js",
+    "static/js/143.2241be92.chunk.js": "/chuck-jokes/static/js/143.2241be92.chunk.js",
+    "static/js/17.e775b243.chunk.js": "/chuck-jokes/static/js/17.e775b243.chunk.js",
+    "static/js/116.0b02b52a.chunk.js": "/chuck-jokes/static/js/116.0b02b52a.chunk.js",
+    "static/media/banner_background.png": "/chuck-jokes/static/media/banner_background.869b81b7436dee2a6ab5.png",
+    "static/media/footer_background.png": "/chuck-jokes/static/media/footer_background.6bcb84950dcbee0fb8f3.png",
+    "static/media/Montserrat-Regular.ttf": "/chuck-jokes/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
+    "index.html": "/chuck-jokes/index.html",
+    "main.6dd3ccfe.css.map": "/chuck-jokes/static/css/main.6dd3ccfe.css.map",
+    "main.bb8f807b.js.map": "/chuck-jokes/static/js/main.bb8f807b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6dd3ccfe.css",
+    "static/js/main.bb8f807b.js"
+  ]
+}
