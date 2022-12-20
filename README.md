@@ -2,8 +2,7 @@
 
 A simple react application for viewing Chuck Norris's collection of jokes
 
-Languages: TypeScript, SCSS
+- Languages: TypeScript, SCSS
+- Library: React
 
-Library: React
-
-Check it out: [Demo](https://gnoul4869.github.io/chuck-jokes)
+### Check it out: [Demo](https://gnoul4869.github.io/chuck-jokes)
