@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chuck-jokes/static/css/main.6dd3ccfe.css",
-    "main.js": "/chuck-jokes/static/js/main.bb8f807b.js",
+    "main.js": "/chuck-jokes/static/js/main.536c3ef3.js",
     "static/js/597.0294433d.chunk.js": "/chuck-jokes/static/js/597.0294433d.chunk.js",
     "static/js/328.a005e5d3.chunk.js": "/chuck-jokes/static/js/328.a005e5d3.chunk.js",
     "static/js/625.5854339e.chunk.js": "/chuck-jokes/static/js/625.5854339e.chunk.js",
@@ -17,10 +17,10 @@
     "static/media/Montserrat-Regular.ttf": "/chuck-jokes/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "index.html": "/chuck-jokes/index.html",
     "main.6dd3ccfe.css.map": "/chuck-jokes/static/css/main.6dd3ccfe.css.map",
-    "main.bb8f807b.js.map": "/chuck-jokes/static/js/main.bb8f807b.js.map"
+    "main.536c3ef3.js.map": "/chuck-jokes/static/js/main.536c3ef3.js.map"
   },
   "entrypoints": [
     "static/css/main.6dd3ccfe.css",
-    "static/js/main.bb8f807b.js"
+    "static/js/main.536c3ef3.js"
   ]
 }
