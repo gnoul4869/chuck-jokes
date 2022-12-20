@@ -19,6 +19,11 @@ export default function SearchBar() {
     useClickOutside(searchBarContainer, () => setIsFocused(false));
 
     const handleSearch = () => {
+        if (!query) {
+            setIsSearched(false);
+            return;
+        }
+
         setIsSearched(true);
         setResults(searchJokes(query));
     };
