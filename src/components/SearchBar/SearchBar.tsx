@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import Icon from 'components/Icon/Icon';
 import useJokes from 'hooks/useJokes';
@@ -6,6 +6,7 @@ import { Joke } from 'types/shared.types';
 
 import './SearchBar.scss';
 import { Link } from 'react-router-dom';
+import useClickOutside from 'hooks/useClickOutside';
 
 export default function SearchBar() {
     const { searchJokes, getJokeTitle } = useJokes();
@@ -13,11 +14,9 @@ export default function SearchBar() {
     const [results, setResults] = useState<Joke[]>([]);
     const [isSearched, setIsSearched] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
+    const searchBarContainer = useRef<HTMLDivElement>(null);
 
-    const handleBlur = () => {
-        const timeout = setTimeout(() => setIsFocused(false), 100);
-        clearTimeout(timeout);
-    };
+    useClickOutside(searchBarContainer, () => setIsFocused(false));
 
     const handleSearch = () => {
         setIsSearched(true);
@@ -37,7 +36,7 @@ export default function SearchBar() {
     };
 
     return (
-        <div className="searchbar-container" onFocus={() => setIsFocused(true)} onBlur={handleBlur}>
+        <div className="searchbar-container" ref={searchBarContainer} onFocus={() => setIsFocused(true)}>
             <div className={`input-container ${isFocused ? 'active' : ''}`}>
                 <input
                     type="text"
