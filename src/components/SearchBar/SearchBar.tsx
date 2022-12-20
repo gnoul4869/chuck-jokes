@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import Icon from 'components/Icon/Icon';
 import useJokes from 'hooks/useJokes';
@@ -11,8 +11,16 @@ export default function SearchBar() {
     const { searchJokes, getJokeTitle } = useJokes();
     const [query, setQuery] = useState('');
     const [results, setResults] = useState<Joke[]>([]);
+    const [isSearched, setIsSearched] = useState(false);
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleBlur = () => {
+        const timeout = setTimeout(() => setIsFocused(false), 100);
+        clearTimeout(timeout);
+    };
 
     const handleSearch = () => {
+        setIsSearched(true);
         setResults(searchJokes(query));
     };
 
@@ -29,8 +37,8 @@ export default function SearchBar() {
     };
 
     return (
-        <div className="searchbar-container">
-            <div className="input-container">
+        <div className="searchbar-container" onFocus={() => setIsFocused(true)} onBlur={handleBlur}>
+            <div className={`input-container ${isFocused ? 'active' : ''}`}>
                 <input
                     type="text"
                     className="searchbar"
@@ -42,14 +50,18 @@ export default function SearchBar() {
                     <Icon name="search" size="md" />
                 </button>
             </div>
-            {results && (
+            {isFocused && isSearched && (
                 <div className="results-container">
-                    {results.map((r, i) => (
-                        <Link to={`/jokes/${r.id}`} key={r.id} className="result">
-                            {renderIcon(i)}
-                            <span className="text">{getJokeTitle(r)}</span>
-                        </Link>
-                    ))}
+                    {results.length ? (
+                        results.map((r, i) => (
+                            <Link to={`/jokes/${r.id}`} key={r.id} className="result" onClick={() => setIsFocused(false)}>
+                                {renderIcon(i)}
+                                <span className="text">{getJokeTitle(r)}</span>
+                            </Link>
+                        ))
+                    ) : (
+                        <div className="result failed">No jokes matched</div>
+                    )}
                 </div>
             )}
         </div>

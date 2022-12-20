@@ -22,15 +22,15 @@
             transition: all 0.3s ease;
             transition-property: color, filter, background-color;
 
-            &:focus {
-                color: $black;
-                background-color: $white-two;
-                filter: none;
+            // &:focus {
+            //     color: $black;
+            //     background-color: $white-two;
+            //     filter: none;
 
-                & ~ .btn-search {
-                    filter: none;
-                }
-            }
+            //     & ~ .btn-search {
+            //         filter: none;
+            //     }
+            // }
         }
 
         .btn-search {
@@ -47,6 +47,18 @@
             transition: all 0.3s ease;
             transition-property: filter;
             transform: translate3d(0, -50%, 0);
+        }
+
+        &.active {
+            .searchbar,
+            .btn-search {
+                color: $black;
+                filter: none;
+            }
+
+            .searchbar {
+                background-color: $white-two;
+            }
         }
     }
 
@@ -102,6 +114,10 @@
 
             .icon {
                 left: 0;
+            }
+
+            &.failed {
+                color: $pastel-orange;
             }
         }
     }
