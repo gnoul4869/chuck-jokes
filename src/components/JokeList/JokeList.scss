@@ -39,6 +39,7 @@
 
         &.disabled {
             cursor: not-allowed;
+            background-color: $grey;
         }
     }
 
