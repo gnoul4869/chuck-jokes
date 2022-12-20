@@ -1,0 +1,48 @@
+@import 'assets/styles';
+
+.searchbar-container {
+    position: relative;
+
+    .searchbar {
+        width: 20vw;
+        min-width: 20rem;
+        height: 10vw;
+        max-height: 4rem;
+        padding-right: 4rem;
+        padding-left: 1.2rem;
+        color: $white-two;
+        background-color: transparent;
+        filter: $filter-white;
+        border: none;
+        border-radius: 0.4rem;
+        outline: 0.1rem solid $white-two;
+        transition: all 0.3s ease;
+        transition-property: color, filter, background-color;
+
+        &:focus {
+            color: $black;
+            background-color: $white-two;
+            filter: none;
+
+            & ~ .btn-search {
+                filter: none;
+            }
+        }
+    }
+
+    .btn-search {
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        background-color: transparent;
+        filter: $filter-white;
+        border: none;
+        outline: none;
+        transition: all 0.3s ease;
+        transition-property: filter;
+        transform: translate3d(0, -50%, 0);
+    }
+}

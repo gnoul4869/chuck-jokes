@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 import bannerBackground from 'assets/images/banner_background.png';
 
 import './Header.scss';
+import SearchBar from 'components/SearchBar/SearchBar';
 
 export default function Banner() {
     return (
-        <div className="header-container">
+        <div className="header-container" style={{ backgroundImage: `url(${bannerBackground})` }}>
             <div className="content-container">
                 <Link to="/">
                     <div className="title-container">
@@ -13,8 +14,8 @@ export default function Banner() {
                         <div className="sub-title">Daily Laughs for Chuck Norris fans</div>
                     </div>
                 </Link>
+                <SearchBar />
             </div>
-            <img src={bannerBackground} alt="banner_background" className="banner-img" />
         </div>
     );
 }
