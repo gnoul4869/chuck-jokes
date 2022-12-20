@@ -5,10 +5,11 @@ import useJokes from 'hooks/useJokes';
 import { Joke } from 'types/shared.types';
 
 import './SearchBar.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useClickOutside from 'hooks/useClickOutside';
 
 export default function SearchBar() {
+    const navigate = useNavigate();
     const { searchJokes, getJokeTitle } = useJokes();
     const [query, setQuery] = useState('');
     const [results, setResults] = useState<Joke[]>([]);
@@ -24,8 +25,16 @@ export default function SearchBar() {
             return;
         }
 
+        const res = searchJokes(query);
+
+        if (res.length === 1) {
+            navigate(`/jokes/${res[0].id}`);
+            setQuery('');
+            return;
+        }
+
+        setResults(res);
         setIsSearched(true);
-        setResults(searchJokes(query));
     };
 
     const renderIcon = (index: number) => {
