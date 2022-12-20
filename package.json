@@ -1,4 +1,5 @@
 {
+    "homepage": "https://gnoul4869.github.io/chuck-jokes",
     "name": "chuck-jokes",
     "version": "0.1.0",
     "private": true,
@@ -20,6 +21,8 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
@@ -48,6 +51,7 @@
         "@typescript-eslint/parser": "^5.46.1",
         "eslint": "^8.29.0",
         "eslint-plugin-react": "^7.31.11",
+        "gh-pages": "^4.0.0",
         "stylelint": "^14.16.0",
         "stylelint-config-prettier-scss": "^0.0.1",
         "stylelint-config-recess-order": "^3.0.0",
